@@ -172,20 +172,40 @@ console.log(livroEmprestado);
 // Histórico de transações realizadas em cada conta
 
 class Contas{
-    banco
-    agencia
-    conta
-    digito
-    nome
-    cpf
-    email
-    telefone
-    endereco
-    saldo
-    extrato
-    limeteCredito
-    emprestimo?
-    poupanca?
+    banco: string;
+    agencia: string;
+    conta: string;
+    digito: string;
+    tipo: string;
+    nome: string;
+    cpf: string;
+    email: string;
+    telefone: string;
+    endereco: string;
+    saldo: number;
+    extrato: string;
+    limiteCredito: number;
+    emprestimo?: number;
+    poupanca?: number;
+  
 
-    constructor(){}
+    constructor(banco: string, agencia: string, conta: string, digito: string, tipo: string, nome: string, cpf: string, email: string, telefone: string, endereco: string, saldo: number, extrato: string, limiteCredito: number, emprestimo?: number, poupanca?: number){
+        this.banco = banco,
+        this.agencia = agencia,
+        this.conta = conta,
+        this.digito = digito,
+        this.tipo = tipo,
+        this.nome = nome,
+        this.cpf = cpf,
+        this.email = email,
+        this.telefone = telefone,
+        this.endereco = endereco,
+        this.saldo = saldo,
+        this.extrato = extrato,
+        this.limiteCredito = limiteCredito,
+        this.emprestimo = emprestimo,
+        this.poupanca = poupanca
+    }
 }
+
+const contaCadastrada = new Contas('1442', '001512', '123', '01', 'conta corrente', 'Jean Carlo', '12345678912', 'jeansenac@edu.com.br', '84978452356', 'rua sao jose 100')
