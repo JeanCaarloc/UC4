@@ -368,4 +368,3 @@ class Tarefas{
 const tarefa4 = new Tarefas('Desenvolver banco de dados do aplicativo', projeto1000, 'João Pedro', 'Backend', new Date('2024-01-25'), 'Em Producao')
 
 console.log(tarefa4);
-
