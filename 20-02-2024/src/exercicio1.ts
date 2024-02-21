@@ -3,25 +3,46 @@
 // Detalhes pessoais e profissionais dos colaboradores
 class Funcionarios{
     nome: string;
+    telefone: string;
+    endereco: string;
+    cpf: string;
     cargo: string;
     especialidade: string;
     equipe: string;
     email: string;
     dataNascimento: Date;
 
-    constructor(nome: string, cargo: string,especialidade: string, equipe: string, email: string,dataNascimento: Date){
+
+// Metodo construtor da classe Funcionario
+    constructor(nome: string,telefone: string,endereco: string, cpf: string, cargo: string,especialidade: string, equipe: string, email: string,dataNascimento: Date){
         this.nome = nome,
+        this.telefone = telefone,
+        this.endereco = endereco,
+        this.cpf = cpf,
         this.cargo = cargo,
         this.especialidade = especialidade,
         this.equipe = equipe,
         this.email = email,
         this.dataNascimento =dataNascimento
     }
+    mostrarDados(){
+        console.log('Dados do Funcionario:')
+        console.log(`Nome: ${this.nome}`)
+        console.log(`Telefone: ${this.telefone}`)
+        console.log(`Endereco: ${this.endereco}`)
+        console.log(`CPF: ${this.cpf}`)
+        console.log(`Cargo: ${this.cargo}`)
+        console.log(`Especialidade: ${this.especialidade}`)
+        console.log(`Equipe: ${this.equipe}`)
+        console.log(`Email: ${this.email}`)
+        console.log(`Data de nascimento: ${this.dataNascimento.toLocaleDateString('pt-BR')}`)
+    }
+
 }
 
-const funcionario1 = new Funcionarios('Jeremias', 'Medico', 'Ortopedista', 'Setor 04', 'jeremiaspontes@gmail.com',new Date("1993-02-01"))
+const funcionario1 = new Funcionarios('Jeremias','084912459856', 'rua pedro marcal 48', '78965412356', 'Medico', 'Ortopedista', 'Setor 04', 'jeremiaspontes@gmail.com',new Date("1993-02-01"))
 
-console.log(funcionario1);
+console.log(funcionario1.mostrarDados());
 
 // Cadastro de Consultas:
 // Dados específicos sobre cada consulta, incluindo informações importantes
@@ -208,4 +229,143 @@ class Contas{
     }
 }
 
-const contaCadastrada = new Contas('1442', '001512', '123', '01', 'conta corrente', 'Jean Carlo', '12345678912', 'jeansenac@edu.com.br', '84978452356', 'rua sao jose 100')
+const contasCadastrada = new Contas('1442', '001512', '123', '01', 'conta corrente', 'Jean Carlo', '12345678912', 'jeansenac@edu.com.br', '84978452356', 'rua sao jose 100', 1000.00,'Transferencia não concluida por falta de Saldo', 1500.00)
+
+console.log(contasCadastrada);
+
+
+// Controle de Despesas e Receitas:
+// Registro de despesas e receitas de cada cliente, categorizando cada transação.
+// Análise de gastos mensais e geração de relatórios sobre o fluxo financeiro.
+
+class Despesas{
+    cliente: Contas;
+    descricao: string;
+    data: Date;
+    valor: number;
+    formaDePagamento: string;
+
+
+    constructor(cliente: Contas, descricao: string, data: Date, valor: number,formaDePagamento: string){
+        this.cliente = cliente,
+        this.descricao = descricao,
+        this.data = data,
+        this.valor = valor,
+        this.formaDePagamento = formaDePagamento
+    }
+}
+
+const despesasx = new Despesas(contasCadastrada,'Netflix', new Date("2024-02-20"), 45.00,'Debito Automatico')
+
+console.log(despesasx);
+
+
+class Receitas{
+    cliente: Contas;
+    descricao: string;
+    data: Date;
+    valor: number;
+    categoria: string;
+    origem: string;
+
+
+    constructor(cliente: Contas, descricao: string, data: Date, valor: number, categoria: string, origem: string){
+        this.cliente = cliente,
+        this.descricao = descricao,
+        this.data = data,
+        this.valor = valor,
+        this.categoria = categoria,
+        this.origem = origem
+    }
+}
+
+const receitasx = new Receitas(contasCadastrada, 'Fortune Tiger', new Date("2024-02-20"), 350.00, 'pix', 'Banco Daycoval-Conta 1626-cpf ***152345**')
+
+console.log(receitasx);
+
+
+// Planejamento Financeiro:
+// Funcionalidade para estabelecer metas financeiras, como economizar para uma viagem ou pagar dívidas, e acompanhar o progresso.
+
+class Financeiro{
+    metas: string;
+    valorInvestido: number;
+    dataDaMeta: Date;
+    descricao: string;
+    rendimentoAnual: number;
+
+    constructor(metas: string, valorInvestido: number, dataDaMeta: Date, descricao: string, rendimentoAnual: number){
+        this.metas = metas;
+        this.valorInvestido = valorInvestido;
+        this.dataDaMeta = dataDaMeta;
+        this.descricao = descricao;
+        this.rendimentoAnual = rendimentoAnual
+    }
+}
+
+const financeirox = new Financeiro('Viajar', 2000.00, new Date("2025-07-01"), 'Viagem para os E.U.A', 12.5)
+
+console.log(financeirox);
+
+
+// Desenvolvimento de Sistema de Gerenciamento de Projetos para a Empresa Sem Bagunça
+// Cadastro de Projetos:
+// Registro de projetos em andamento, incluindo informações como nome, descrição e equipe responsável.
+//  Acompanhamento do progresso de cada projeto, com a definição de marcos e prazos.
+
+
+class Projetos{
+    nome: string;
+    descricao: string;
+    equipe: string;
+    situacao: string;
+    dataInicial: Date;
+    dataFinal: Date;
+    porcentagemConcluida: number;
+    valor: number;
+
+
+    constructor(nome: string, descricao: string, equipe: string, situacao: string, dataInicial: Date, dataFinal: Date, porcentagemConcluida: number, valor: number){
+        this.nome = nome,
+        this.equipe = equipe,
+        this.descricao = descricao,
+        this.situacao = situacao,
+        this.dataInicial = dataInicial,
+        this.dataFinal = dataFinal,
+        this.porcentagemConcluida = porcentagemConcluida,
+        this.valor = valor  
+    }
+}
+
+const projeto1000 = new Projetos('Aplicativo de identificação', 'Programadores', 'Criar um aplicativo, que faça identificação dos funcioarios ao registrar entrada e saida da empresa', 'Em produção', new Date('2023-10-23'), new Date'2024-06-25', 60,2500.00)
+
+console.log(projeto1000);
+
+
+// Controle de Tarefas:
+// Divisão de projetos em tarefas individuais, com atribuição de responsáveis e prazos para conclusão.
+// Acompanhamento do status de cada tarefa e notificação de prazos vencidos.
+
+class Tarefas{
+    tipoDeTarefa: string;
+    projeto: Projetos;
+    responsavel: string;
+    equipe: string;
+    prazoEstipulado: Date;
+    statusDaTarefa: string;
+
+
+    constructor(tipoDeTarefa: string, projeto: Projetos, responsavel: string, equipe: string, prazoEstipulado: Date, statusDaTarefa: string){
+    this.tipoDeTarefa = tipoDeTarefa,
+    this.projeto = projeto,
+    this.responsavel = responsavel,
+    this.equipe = equipe,
+    this.prazoEstipulado = prazoEstipulado,
+    this.statusDaTarefa = statusDaTarefa  
+    }
+}
+
+const tarefa4 = new Tarefas('Desenvolver banco de dados do aplicativo', projeto1000, 'João Pedro', 'Backend', new Date('2024-01-25'), 'Em Producao')
+
+console.log(tarefa4);
+
