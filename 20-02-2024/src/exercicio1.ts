@@ -1,102 +1,108 @@
+
 //  Hospital Chega Doente Sai Bom
 // Cadastro de Funcionários:
 // Detalhes pessoais e profissionais dos colaboradores
-class Funcionarios{
+
+class Pessoa{
     nome: string;
     telefone: string;
-    endereco: string;
     cpf: string;
-    cargo: string;
-    especialidade: string;
-    equipe: string;
+    data_nascimento: Date;
     email: string;
-    dataNascimento: Date;
-
-
-// Metodo construtor da classe Funcionario
-    constructor(nome: string,telefone: string,endereco: string, cpf: string, cargo: string,especialidade: string, equipe: string, email: string,dataNascimento: Date){
+    endereco: string[];
+    genero?: string;
+    constructor(nome: string, telefone: string, cpf: string, data_nascimento: Date, email: string, endereco: string[], genero?: string){
         this.nome = nome,
         this.telefone = telefone,
-        this.endereco = endereco,
         this.cpf = cpf,
-        this.cargo = cargo,
-        this.especialidade = especialidade,
-        this.equipe = equipe,
+        this.data_nascimento = data_nascimento,
         this.email = email,
-        this.dataNascimento =dataNascimento
+        this.endereco = endereco,
+        this.genero = genero
     }
     mostrarDados(){
-        console.log('Dados do Funcionario:')
-        console.log(`Nome: ${this.nome}`)
-        console.log(`Telefone: ${this.telefone}`)
-        console.log(`Endereco: ${this.endereco}`)
-        console.log(`CPF: ${this.cpf}`)
-        console.log(`Cargo: ${this.cargo}`)
-        console.log(`Especialidade: ${this.especialidade}`)
-        console.log(`Equipe: ${this.equipe}`)
-        console.log(`Email: ${this.email}`)
-        console.log(`Data de nascimento: ${this.dataNascimento.toLocaleDateString('pt-BR')}`)
+        console.log('------------------Dados das Pessoas------------------');
+        console.log(`Nome______________: ${this.nome}`);
+        console.log(`Telefone__________: ${this.telefone}`);
+        console.log(`CPF_______________: ${this.cpf}`);
+        console.log(`Data de Nascimento: ${this.data_nascimento}`);
+        console.log(`Email_____________: ${this.email}`);
+        console.log(`Endereco__________: ${this.endereco}`);
+        if (this.genero) {
+            console.log(`Genero____________: ${this.genero}`);}
+
+    }
+}
+
+
+//Classe funcionario
+class Funcionarios extends Pessoa {
+
+    matricula: string;
+    cargo: string;
+
+    constructor(nome: string, telefone: string, cpf: string, data_nascimento: Date, email: string, endereco: string[],matricula: string,cargo: string, genero?: string){
+        super(nome,telefone, cpf, data_nascimento,email,endereco,genero)
+        this.matricula = matricula,
+        this.cargo = cargo
+    }
+    mostrarDados(){
+        super.mostrarDados()
+        console.log(`Cargo_____________: ${this.cargo}`);
+        console.log(`Matricula_________: ${this.matricula}`)
+        console.log('---------------------------------------------');
     }
 
 }
 
-const funcionario1 = new Funcionarios('Jeremias','084912459856', 'rua pedro marcal 48', '78965412356', 'Medico', 'Ortopedista', 'Setor 04', 'jeremiaspontes@gmail.com',new Date("1993-02-01"))
+const funcionario1 = new Funcionarios('Dr.Fulano', "84912457832",'12457823610',new Date("1993-18-12"),'fulano@gmail.com', ['Rua São Jose', '100'], '78526','medico', "Masculino" )
+funcionario1.mostrarDados()
 
-console.log(funcionario1.mostrarDados());
 
 // Cadastro de Consultas:
 // Dados específicos sobre cada consulta, incluindo informações importantes
-class Consultas{
+class Consultas extends Pessoa{
     especialidade: string;
-    medico: Funcionarios;
-    data: Date;
     horario: Date;
-    paciente: string;
     plano: string;
-    cpf: string;
-    celular: string; 
 
-    constructor(especialidade: string,medico: Funcionarios, data: Date, horario: Date, paciente: string, plano: string, cpf: string, celular: string){
+    constructor(nome: string, telefone: string, cpf: string, data_nascimento: Date, email: string, endereco: string[], especialidade: string, horario: Date, plano: string, genero?: string){
+        super(nome,telefone,cpf,data_nascimento,email,endereco,genero)
         this.especialidade = especialidade,
-        this.medico = medico,
-        this.data = data,
         this.horario = horario,
-        this.paciente = paciente,
-        this.plano = plano,
-        this.cpf = cpf,
-        this.celular = celular
+        this.plano = plano
     }
+    mostrarDados() {
+        super.mostrarDados()
+        console.log(`Especialidade_____: ${this.especialidade}`);
+        console.log(`Horario___________: ${this.horario.getTime}`);
+        console.log(`Plano_____________: ${this.plano}`);   
+        console.log('---------------------------------------------');
+    }
+        
 }
 
-const consulta2 = new Consultas('Ortopedista', funcionario1, new Date("2024,3,3"), new Date(14,30), 'Robervaldo', 'Gold', '123456798-20', '84981584195');
-
-console.log(consulta2);
+const consulta2 = new Consultas('Ciclano', '84932786545', '78932146502',new Date("1990-05-03"), 'ciclano@gmail.com', ['Rua do senac', 'Numero 200','Bairro Senac','Cidade Senac'],'Ortopedista', new Date("13:30:30"), 'HapVidas')
+consulta2.mostrarDados()
 
 // Cadastro de Pacientes:
 // Dados pessoais com informações relevantes que possam contatar o paciente
-class Pacientes{
-    nome: string;
+class Pacientes extends Pessoa {
+   
     plano: string;
-    cpf: string;
-    telefone: string;
     setor: string;
-    medico: Funcionarios;
     diagnostico: string;
 
-    constructor(nome: string,plano: string,cpf: string,telefone: string,setor: string,medico: Funcionarios,diagnostico: string){
-        this.nome = nome,
+    constructor(nome: string, telefone: string, cpf: string, data_nascimento: Date, email: string, endereco: string[], plano: string, setor: string, diagnostico: string, genero?: string, ){
+        super(nome,telefone,cpf,data_nascimento,email,endereco,genero)
         this.plano = plano,
-        this.cpf = cpf,
-        this.telefone = telefone,
         this.setor = setor,
-        this.medico = medico,
         this.diagnostico = diagnostico
     }
 }
 
-const paciente111 = new Pacientes('Malaquias', 'Gold', '54267880101','84956237845','Setor02',funcionario1,'A patela do joelho esta fora do lugar, paciente sentindo muita dor')
-
-console.log(paciente111);
+const paciente111 = new Pacientes('Beltrano', '84973194628', '79431646589', new Date('2000-02-10'), 'beltrano@gmail.com',['Rua das ostras','78','Mae Luiza','Natal'],'HapVida','Setor 04','Dor de Cabeça e Febre','Masculino')
+paciente111.mostrarDados()
 
 
 
@@ -337,7 +343,7 @@ class Projetos{
     }
 }
 
-const projeto1000 = new Projetos('Aplicativo de identificação', 'Programadores', 'Criar um aplicativo, que faça identificação dos funcioarios ao registrar entrada e saida da empresa', 'Em produção', new Date('2023-10-23'), new Date'2024-06-25', 60,2500.00)
+const projeto1000 = new Projetos('Aplicativo de identificação', 'Programadores', 'Criar um aplicativo, que faça identificação dos funcioarios ao registrar entrada e saida da empresa', 'Em produção', new Date('2023-10-23'), new Date('2024-06-25'), 60,2500.00)
 
 console.log(projeto1000);
 
@@ -368,3 +374,13 @@ class Tarefas{
 const tarefa4 = new Tarefas('Desenvolver banco de dados do aplicativo', projeto1000, 'João Pedro', 'Backend', new Date('2024-01-25'), 'Em Producao')
 
 console.log(tarefa4);
+
+
+// Comunicação Interna:
+// Facilidade para comunicação entre os membros da equipe de cada projeto, através de mensagens e compartilhamento de arquivos
+// Registro de discussões e decisões importantes relacionadas aos projetos
+
+class Comunicacao{
+
+    constructor(){}
+}
