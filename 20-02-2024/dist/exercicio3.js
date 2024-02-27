@@ -1,4 +1,5 @@
-// Desenvolvimento de Sistema de Gerenciamento de Finanças Pessoais para o Banco Dinheiro Seguro
+"use strict";
+/* // Desenvolvimento de Sistema de Gerenciamento de Finanças Pessoais para o Banco Dinheiro Seguro
 // Cadastro de Contas:
 // Registro das contas bancárias dos clientes, incluindo informações como saldo, tipo de conta e titularidade
 // Histórico de transações realizadas em cada conta
@@ -116,4 +117,4 @@ class Financeiro{
 
 const financeirox = new Financeiro('Viajar', 2000.00, new Date("2025-07-01"), 'Viagem para os E.U.A', 12.5)
 
-console.log(financeirox);
+console.log(financeirox); */ 

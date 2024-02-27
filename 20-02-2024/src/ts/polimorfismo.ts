@@ -1,4 +1,4 @@
-import {Funcionarios} from './exercicio1'
+/* import {Funcionarios} from './exercicio1'
 
 const funcionario2 = new Funcionarios('Robervaldo','84949163467','75815245265',new Date('1990-02-02'),'robervaldo@gmal.com',['Rua do senac','Nº12','Mae Luiza'],'1218','Enfermeiro','Masculino')
 
@@ -22,4 +22,4 @@ class Desenvolvedor extends Funcionarios{
 }
 
 const desenvolvedor1 = new Desenvolvedor('Jean','84912457823','42579845620',new Date('18-12-1993'),'jean@gmail.com',['rua sao jose','N46'],'95287766','desenvolvedor',['Typescript'],['backend'],['senac'], 1 ,'Masculino')
-desenvolvedor1.mostrarDados()
+desenvolvedor1.mostrarDados() */

@@ -1,18 +1,21 @@
 "use strict";
-class Carro {
-    modelo;
-    ano;
-    marca;
-    preco;
-    motor;
-    cor;
-    constructor(modelo, ano, marca, preco, motor, cor) {
+/* class Carro{
+    modelo: string;
+    ano: number;
+    marca: string;
+    preco: number;
+    motor: number;
+    cor: string;
+    constructor(modelo: string,ano: number,marca: string,preco: number,motor: number,cor: string){
         this.ano = ano,
-            this.modelo = modelo,
-            this.marca = marca,
-            this.preco = preco,
-            this.motor = motor,
-            this.cor = cor;
+        this.modelo = modelo,
+        this.marca = marca,
+        this.preco = preco,
+        this.motor = motor,
+        this.cor = cor
     }
 }
-const carrodev = new Carro('Opala', 2000, 'Chevrolet', 45000, 4.1, 'Vermelho');
+
+const carrodev = new Carro('Opala',2000,'Chevrolet',45000,4.1,'Vermelho')
+
+ */

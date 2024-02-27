@@ -1,4 +1,5 @@
-//  Desenvolvimento de Sistema de Gestão de Biblioteca para a Biblioteca Leitura Certa
+"use strict";
+/* //  Desenvolvimento de Sistema de Gestão de Biblioteca para a Biblioteca Leitura Certa
 // Cadastro de Livros:
 // Detalhes sobre cada livro, incluindo título, autor, editora e categoria
 // Registro da quantidade de cópias disponíveis de cada livro.
@@ -50,7 +51,7 @@ class Usuários{
         this.telefone = telefone,
         this.email = email,
         this.endereco = endereco,
-        this.livroAlocado = livroAlocado 
+        this.livroAlocado = livroAlocado
        }
 }
 
@@ -80,4 +81,4 @@ class Emprestimo_Livros{
 
 const livroEmprestado = new Emprestimo_Livros(55, new Date('2024-02-10'), new Date('2024-02-20'), usuario10, livro1)
 
-console.log(livroEmprestado);
+console.log(livroEmprestado); */ 

@@ -1,4 +1,4 @@
-// Desenvolvimento de Sistema de Gerenciamento de Projetos para a Empresa Sem Bagunça
+/* // Desenvolvimento de Sistema de Gerenciamento de Projetos para a Empresa Sem Bagunça
 // Cadastro de Projetos:
 // Registro de projetos em andamento, incluindo informações como nome, descrição e equipe responsável.
 //  Acompanhamento do progresso de cada projeto, com a definição de marcos e prazos.
@@ -67,4 +67,4 @@ console.log(tarefa4);
 class Comunicacao{
 
     constructor(){}
-}
+} */

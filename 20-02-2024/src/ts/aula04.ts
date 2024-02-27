@@ -1,4 +1,4 @@
-class Carro{
+/* class Carro{
     modelo: string;
     ano: number;
     marca: string;
@@ -16,4 +16,6 @@ class Carro{
 }
 
 const carrodev = new Carro('Opala',2000,'Chevrolet',45000,4.1,'Vermelho')
+
+ */
 
